@@ -1,0 +1,29 @@
+package Javaapplication7;
+import java.util.Scanner;
+
+/**
+ *
+ * @author ADMIN-FUE
+ */
+public class JavaApplication7 {
+
+    
+
+    public static int getInt(Scanner s, String prompt) {
+        System.out.print(prompt);
+        int number = s.nextInt();
+        return number;}
+    
+    
+    
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int age = getInt(input, "Enter your age: ");
+        System.out.println("Recorded Age: " + age);
+
+        input.close();
+    }
+
+    }
