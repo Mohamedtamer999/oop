@@ -1,0 +1,34 @@
+package Javaapplication7;
+import java.util.Scanner;
+
+/**
+ *
+ * @author ADMIN-FUE
+ */
+public class JavaApplication7 {
+
+    
+
+
+    
+    public static double computeArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    public static double computeArea(double length, double width) {
+        return length * width;
+    }
+
+    public static double computeArea(double base, double height, boolean isTriangle) {
+        return (0.5 * base * height);
+    }
+
+    public static void main(String[] args) {
+
+        System.out.printf("Circle area: %.2f%n", computeArea(5.0));
+
+        System.out.printf("Rectangle area: %.2f%n", computeArea(4.0, 6.0));
+
+        System.out.printf("Triangle area: %.2f%n", computeArea(4.0, 6.0, true));
+    }
+} 
