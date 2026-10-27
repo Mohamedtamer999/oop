@@ -44,47 +44,49 @@ public class JavaApplication9 {
 
 
 
+import java.util.Scanner;
 
-package javaapplication9;
- import java.util.Scanner;
-/**
- *
- * @author ADMIN-FUE
- */
-public class JavaApplication9 {
+public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-       
-        Scanner input = new Scanner(System.in);
+    public static boolean isStrong(String pw) {
+        return pw.length() >= 6
+                && Character.isUpperCase(pw.charAt(0))
+                && pw.indexOf('@') != -1;
+    }
 
-        int[] sales = new int[7];
-        int total = 0;
-        int count = 0;
+    public static String mask(String pw) {
+        String masked = "" + pw.charAt(0);
 
-        System.out.print("Enter sales of 7 days: ");
-
-        for (int i = 0; i < 7; i++) {
-            sales[i] = input.nextInt();
-            total += sales[i];
-
-            if (sales[i] > 20) {
-                count++;
-            }
+        for (int i = 1; i < pw.length(); i++) {
+            masked = masked.concat("*");
         }
 
-        long average = Math.round(total / 7.0);
+        return masked;
+    }
 
-        System.out.println("Total: " + total);
-        System.out.println("Days greater than 20: " + count);
-        System.out.println("Average: " + average);
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] passwords = new String[4];
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Enter password " + (i + 1) + ": ");
+            passwords[i] = input.nextLine();
+        }
+
+        for (int i = 0; i < 4; i++) {
+            if (isStrong(passwords[i])) {
+                System.out.println("Strong");
+            } else {
+                System.out.println("Weak");
+            }
+
+            System.out.println("Masked password: " + mask(passwords[i]));
+        }
 
         input.close();
     }
 }
+
 
 
 
