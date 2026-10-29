@@ -1,0 +1,52 @@
+
+package javaapplication2;
+import java.util.Scanner;
+/**
+ *
+ * @author ADMIN-FUE
+ */
+public class JavaApplication2 {
+
+   
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+        
+        int[] guesses = new int[5];
+        int secret = generateSecret();
+        int count = 0;
+        boolean correct = false;
+         
+        while (count < 5 && !correct){
+           System.out.print("enter guess");
+           guesses[count] = input.nextInt();
+           count++;
+           
+           String result = checkGuess(guesses[count - 1, secret]);
+           if(result.equals("correct")){
+               correct = true;
+               System.out.println("correct in " + count + "attempts");
+           }
+           else{
+               System.out.println(result);
+           }
+        }
+        if (!correct){
+         System.out.println("Secret number" + secret);   
+        }
+    }
+    public static int generatesecret(){
+        return (int)(Math.random() * 50 ) + 1;
+    }
+    public static String checkGuess(int guess, int secret){
+        if (guess == secret){
+            return "Correct";
+        }
+        else if (guess < secret){
+            return "Higher";
+        }else{
+            return "Lower";
+        }
+    }
+    
+}
