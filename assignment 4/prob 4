@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class main {
+
+    public static String maskEmail(String email) {
+        email = email.trim();
+
+        int atIndex = email.indexOf('@');
+
+        if (atIndex == -1) {
+            return "Invalid Email";
+        }
+
+        String username = email.substring(0, atIndex);
+        String domain = email.substring(atIndex + 1).toLowerCase();
+
+        if (username.length() <= 2) {
+            return username + "@" + domain;
+        }
+
+        String masked = username.substring(0, 2);
+
+        for (int i = 2; i < username.length(); i++) {
+            masked += "*";
+        }
+
+        return masked + "@" + domain;
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter email: ");
+        String email = s.nextLine();
+
+        System.out.println(maskEmail(email));
+
+        s.close();
+    }
+}
