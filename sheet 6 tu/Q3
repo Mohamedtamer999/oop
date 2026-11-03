@@ -1,4 +1,4 @@
-
+package javaapplication8;
 
 public class Rectangle {
     private double length = 1;
@@ -16,10 +16,10 @@ public class Rectangle {
     public double getPerimeter(){
       return 2 * (length + width);  
     }
-}
 
 
-public class TestRectangle {
+
+
     public static void main(String[] args) {
 
         Rectangle rectangle1 = new Rectangle();
