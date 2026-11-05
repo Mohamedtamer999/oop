@@ -11,9 +11,9 @@ public class Invoice {
     }
 
     public Invoice() {
-        this.invoiceID = "1";
-        this.discount = 2.5;
-        this.totalInvoice = 100;
+        invoiceID = "1";
+        discount = 2.5;
+        totalInvoice = 100;
     }
 
     public String getInvoiceID() {
@@ -28,25 +28,33 @@ public class Invoice {
         return totalInvoice;
     }
 
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public void setTotalInvoice(double totalInvoice) {
+        this.totalInvoice = totalInvoice;
+    }
+
     public double calculateDiscountPrice() {
         return totalInvoice - (totalInvoice * discount / 100);
     }
 
     public static void main(String[] args) {
 
-        Invoice inv = new Invoice();
+        Invoice inv1 = new Invoice();
 
-        System.out.println("Invoice ID: " + inv.getInvoiceID());
-        System.out.println("Old Discount: " + inv.getDiscount() + "%");
-        System.out.println("Old Invoice Price: " + inv.getTotalInvoice());
+        System.out.println(inv1.getInvoiceID() + " "
+                + inv1.getDiscount()
+                + " Before discount: " + inv1.getTotalInvoice()
+                + " After discount: " + inv1.calculateDiscountPrice());
 
-        inv.discount = 5.5;
-        inv.totalInvoice = 200;
+        Invoice inv2 = new Invoice("1", 5.5, 200);
 
-        System.out.println("\nNew Discount: " + inv.getDiscount() + "%");
-        System.out.println("New Invoice Price: " + inv.getTotalInvoice());
-
-        System.out.println("Price After Discount: "
-                + inv.calculateDiscountPrice());
+        System.out.println(inv2.getInvoiceID() + " "
+                + inv2.getDiscount()
+                + " Before discount: " + inv2.getTotalInvoice()
+                + " After discount: " + inv2.calculateDiscountPrice());
     }
 }
+
