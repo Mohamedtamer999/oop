@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+class Student {
+    
+    private String studentName;
+    private int studentID;
+    private double grade;
+
+    public Student() {
+        studentName = "Unknown";
+        studentID = 0;
+        grade = 0.0;
+    }
+
+    public Student(String studentName, int studentID, double grade) {
+        this.studentName = studentName;
+        this.studentID = studentID;
+        this.grade = grade;
+    }
+
+    public void updateGrade(double newGrade) {
+        grade = newGrade;
+    }
+
+    public boolean isPassed() {
+        return grade >= 50;
+    }
+    
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public int getStudentID() {
+        return studentID;
+    }
+
+    public double getGrade() {
+        return grade;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int n = input.nextInt();
+
+        Student[] students = new Student[n];
+
+        for (int i = 0; i < n; i++) {
+
+            System.out.println("\nEnter information for student " + (i + 1));
+
+
+            System.out.print("Enter student name: ");
+            String name = input.next();
+
+            System.out.print("Enter student ID: ");
+            int id = input.nextInt();
+
+            System.out.print("Enter student grade: ");
+            double grade = input.nextDouble();
+
+            students[i] = new Student(name, id, grade);
+        }
+
+        System.out.print("Enter the index of the student to update (0 to " + (n - 1) + "): ");
+        int index = input.nextInt();
+
+        if (index >= 0 && index < n) {
+
+            System.out.print("Enter the new grade: ");
+            double newGrade = input.nextDouble();
+
+            students[index].updateGrade(newGrade);
+
+            System.out.println("Grade updated successfully!");
+
+        } else {
+            System.out.println("Invalid student index!");
+        }
+
+        System.out.println(" Students Information ");
+
+        for (int i = 0; i < n; i++) {
+
+            System.out.println("Student " + (i + 1));
+            System.out.println("Name: " + students[i].getStudentName());
+            System.out.println("ID: " + students[i].getStudentID());
+            System.out.println("Grade: " + students[i].getGrade());
+
+            if (students[i].isPassed()) {
+                System.out.println("Status: Passed");
+            } else {
+                System.out.println("Status: Failed");
+            }
+        }
+
+    }
+}
+
+    
