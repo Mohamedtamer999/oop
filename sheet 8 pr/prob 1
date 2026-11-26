@@ -1,0 +1,150 @@
+class Vehicle {
+   
+    private String brand;
+    private String model;
+    private int year;
+
+    public Vehicle(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double calculateRentalPrice(int days) {
+        return days * 50;
+    }
+
+    public double calculateRentalPrice(int days, double discount) {
+        return calculateRentalPrice(days) -
+               (calculateRentalPrice(days) * discount / 100);
+    }
+
+    public void displayDetails() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Brand: " + brand +
+               "Model: " + model +
+               "Year: " + year;
+    }
+}
+
+
+
+public class Car {
+     private final int numberOfDoors;
+
+    public Car(String brand, String model, int year, int numberOfDoors) {
+      
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    public double calculateRentalPrice(int days) {
+        return days * 100;
+    }
+
+    public void displayDetails() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+               "Number of Doors: " + numberOfDoors; 
+}
+
+     void calculateRentalPrice(int i, int i0) {
+         System.out.println("Not supported yet."); 
+    }
+    
+ }
+
+
+
+ class Motorcycle extends Vehicle{
+        private int engineCapacity;
+
+    public Motorcycle(String brand, String model, int year, int engineCapacity) {
+        super(brand, model, year);
+        this.engineCapacity = engineCapacity;
+    }
+
+    public double calculateRentalPrice(int days) {
+        return days * 60;
+    }
+
+    public void displayDetails() {
+        System.out.println();
+    }
+
+    public void toString() {
+           System.out.println();
+    }
+
+        void calculateRentalPrice(int i, int i0) {
+        System.out.println("Not supported yet."); 
+           
+    }
+    
+}
+
+
+
+public class JavaApplication72 {
+
+  
+    public static void main(String[] args) {
+
+        Car car = new Car("BMW", "X5", 2024, 4);
+
+        Motorcycle motorcycle = new Motorcycle("Honda", "CBR", 2023, 600);
+
+        System.out.println("Car Details:");
+        car.displayDetails();
+
+        System.out.println("Motorcycle Details:");
+        motorcycle.displayDetails();
+
+        System.out.println("Rental Prices for 3 Days:");
+
+        System.out.println("Car Price: " +
+                car.calculateRentalPrice(3));
+
+        System.out.println("Motorcycle Price: " +
+                motorcycle.calculateRentalPrice(3));
+
+        System.out.println("Prices After 10% Discount:");
+
+        System.out.println("Car Price: " +
+                car.calculateRentalPrice(3, 10));
+
+        System.out.println("Motorcycle Price: " +
+                motorcycle.calculateRentalPrice(3, 10));
+    }
+}
